@@ -36,7 +36,7 @@ return {
 			["clang-format"] = {
 				inherit = true,
 				prepend_args = {
-					"-style=file:/Users/zachlivingston/.config/nvim/lua/config/formatters/.clang-format",
+					"-style=file:" .. vim.fn.stdpath("config") .. "/lua/config/formatters/.clang-format",
 				},
 			},
 			rustfmt = {
