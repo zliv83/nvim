@@ -16,29 +16,16 @@ vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = ";"
-vim.keymap.set("n", "<leader>cd", vim.cmd.Ex)
-vim.cmd.colorscheme("unokai")
-vim.opt.scrolloff = 8
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
-vim.opt.smartindent = true
-vim.opt.termguicolors = true
-vim.opt.cursorline = true
-vim.keymap.set("i", "<D-cr>", "<C-o>O", { desc = "New line below (Cmd+Enter)" })
 
 require("lazy").setup({
 	spec = {
 		-- import your plugins
-		{ import = "plugins.completion" },
 		{ import = "plugins.editor" },
-		{ import = "plugins.lang" },
-		{ import = "plugins.lsp" },
-		{ import = "plugins.tools" },
-		{ import = "plugins.ui" },
+		{ import = "plugins.completion", cond = not vim.g.vscode },
+		{ import = "plugins.lang", cond = not vim.g.vscode },
+		{ import = "plugins.lsp", cond = not vim.g.vscode },
+		{ import = "plugins.tools", cond = not vim.g.vscode },
+		{ import = "plugins.ui", cond = not vim.g.vscode },
 	},
 	checker = { enabled = true, notify = false },
 	change_detection = { notify = false },

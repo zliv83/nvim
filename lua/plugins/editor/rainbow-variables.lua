@@ -1,5 +1,6 @@
 return {
 	"goldos24/rainbow-variables-nvim",
+	cond = not vim.g.vscode,
 	config = function()
 		require("rainbow-variables-nvim").start_with_config({
 			reduce_color_collisisons = true,
